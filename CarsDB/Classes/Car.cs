@@ -19,7 +19,7 @@ namespace CarsDB.Classes
 
         [MaxLength(50)]
         [Required]
-        public int Price { get; set; }
+        public double PriceInMillion { get; set; }
 
         [ForeignKey(nameof(Brand))]
         public int BrandID { get; set; }
