@@ -18,7 +18,7 @@ namespace CarsDB.Classes
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|Data Directory|\Database1.mdf; Integrated Security=True; MultipleACtiveResultSets=true");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf; Integrated Security=True; MultipleACtiveResultSets=true");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
