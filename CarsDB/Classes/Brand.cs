@@ -18,6 +18,9 @@ namespace CarsDB.Classes
         [Required]
         public string Name { get; set; }
 
+        [MaxLength(4)]
+        public int Founded { get; set; }
+
         [NotMapped]
         public virtual ICollection<Car> Cars {get; set;}
 

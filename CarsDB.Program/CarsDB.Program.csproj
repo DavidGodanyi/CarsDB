@@ -5,4 +5,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ConsoleMenu-simple" Version="2.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarsDB.Logic\CarsDB.Logic.csproj" />
+    <ProjectReference Include="..\CarsDB.Repository\CarsDB.Repository.csproj" />
+    <ProjectReference Include="..\CarsDB\CarsDB.csproj" />
+  </ItemGroup>
+
 </Project>

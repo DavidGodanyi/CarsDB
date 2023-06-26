@@ -29,11 +29,11 @@ namespace CarsDB.Classes
             });
 
             //táblák feltöltése adatokkal
-            Brand suzuki = new Brand() { Id = 1, Name = "Suzuki" };
-            Brand nissan = new Brand() { Id = 2, Name = "Nissan" };
-            Brand trabant = new Brand() { Id = 3, Name = "Trabant" };
-            Brand porsche = new Brand() { Id = 4, Name = "Porsche" };
-            Brand mazda = new Brand() { Id = 5, Name = "Mazda" };
+            Brand suzuki = new Brand() { Id = 1, Name = "Suzuki", Founded = 1909 };
+            Brand nissan = new Brand() { Id = 2, Name = "Nissan", Founded = 1930 };
+            Brand trabant = new Brand() { Id = 3, Name = "Trabant", Founded = 1957 };
+            Brand porsche = new Brand() { Id = 4, Name = "Porsche", Founded = 1931 };
+            Brand mazda = new Brand() { Id = 5, Name = "Mazda", Founded = 1920 };
 
             Car s1 = new Car() { Id = 1, BrandID = suzuki.Id, Type = "sx4", PriceInMillion = 4.6 };
             Car n1 = new Car() { Id = 2, BrandID = nissan.Id, Type = "nt500", PriceInMillion = 5.2 };
