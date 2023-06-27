@@ -31,7 +31,7 @@ namespace CarsDB.Repository
             var x = GetAll();
             foreach (var item in x)
             {
-                item.PriceInMillion += item.PriceInMillion * percent;
+                item.PriceInMillion += item.PriceInMillion * percent / 100;
             }
             db.SaveChanges();
         }

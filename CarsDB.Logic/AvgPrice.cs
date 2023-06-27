@@ -9,7 +9,7 @@ namespace CarsDB.Logic
 
         public override string ToString()
         {
-            return brand + "Average car price: " + avgPrice;
+            return brand + "- Average car price: " + Math.Round(avgPrice,2);
         }
 
         public override bool Equals(object obj)

@@ -28,5 +28,10 @@ namespace CarsDB.Classes
         {
             Cars = new HashSet<Car>(); //gyors keresés, indexelés nem szükséges
         }
+
+        public override string ToString()
+        {
+            return Id + ": " + Name + ", Founded: " + Founded;
+        }
     }
 }

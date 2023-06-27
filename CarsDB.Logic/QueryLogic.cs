@@ -25,31 +25,35 @@ namespace CarsDB.Logic
             return q.ToList();
         }
 
-        public BrandStatistics GetBrandStatistics()
+        public string GetBrandStatistics()
         {
-            var q = from brand in brandRepo.GetAll()
-                    group brand by brand.Name into grp
-                    select new BrandStatistics() { newestBrandName = grp.Key, newestBrandYear = grp.Max(x => x.Founded) };
-            var q2 = from brand in brandRepo.GetAll()
-                    group brand by brand.Name into grp
-                    select new BrandStatistics() { oldestBrandName = grp.Key, oldestBrandYear = grp.Max(x => x.Founded) };
+            string results = "Brand Statistics: \n";
 
-            List<string> list = new List<string>();
-            BrandStatistics bs = new BrandStatistics();
-            foreach (var item in q)
-            {
-                list.Add(item.ToString());
-            }
+            var q1 = from brand in brandRepo.GetAll()
+                     select brand;            
+
+            NewestBrandStatistics n = new NewestBrandStatistics();
+            OldestBrandStatistics o = new OldestBrandStatistics();
+            n.newestBrandYear= q1.Max(x => x.Founded);
+            o.oldestBrandYear = q1.Min(x => x.Founded);
+
+            var q2 = from brand in brandRepo.GetAll()
+                     where brand.Founded == n.newestBrandYear
+                     select brand.Name;
             foreach (var item in q2)
             {
-                list.Add(item.ToString());
+                n.newestBrandName += item;
             }
-            bs.newestBrandName = list[0];
-            bs.newestBrandYear = Convert.ToInt32(list[1]);
-            bs.oldestBrandName = list[2];
-            bs.oldestBrandYear = Convert.ToInt32(list[3]);
 
-            return bs;
+            var q3 = from brand in brandRepo.GetAll()
+                     where brand.Founded == o.oldestBrandYear
+                     select brand.Name;
+            foreach (var item in q3)
+            {
+                o.oldestBrandName += item;
+            }
+
+            return results + o + "\n" + n;
         }
     }
 }

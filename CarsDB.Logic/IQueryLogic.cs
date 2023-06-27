@@ -6,7 +6,7 @@ namespace CarsDB.Logic
 {
     public interface IQueryLogic
     {
-        BrandStatistics GetBrandStatistics();
+        string GetBrandStatistics();
         List<AvgPrice> GetAvgPrices();
     }
 }

@@ -27,5 +27,10 @@ namespace CarsDB.Classes
 
         [NotMapped]
         public virtual Brand Brand { get; set; }
+
+        public override string ToString()
+        {
+            return Id + ": " + Brand.Name + " " + Type + ", Price: " + Math.Round(PriceInMillion,2) + " M";
+        }
     }
 }
